@@ -10,3 +10,43 @@
 ## laravel-jwt-api-auth
 
 Авторизация с помощью библиотеки JWT. С разделением на скоупы для администратора и юзера
+
+**ENUM**
+
+```composer require bensampo/laravel-enum```
+
+config/app.php provider 
+
+```'BenSampo\Enum\EnumServiceProvider'```
+
+use
+
+```php artisan make:enum NAME```
+
+**JWT**
+
+```composer require tymon/jwt-auth:^1.0.0```
+
+config/app.php provider
+
+```php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"```
+
+secret key (JWT_SECRET=GENERATED_KEY in .env)
+
+```php artisan jwt:secret```
+
+**IDE HELPER**
+
+```composer require --dev barryvdh/laravel-ide-helper```
+
+app/Providers/AppServiceProvider.php register method
+
+```
+if ($this->app->environment() !== 'production') {
+    $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+}
+```
+
+generate helpers file
+
+```php artisan ide-helper:generate```
